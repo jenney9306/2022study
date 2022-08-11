@@ -91,6 +91,79 @@ main() 메소드 호출(jvm 스택에 main 프레임이 생성)
  String args; (힙영역에 생성)
 main() 메소드가 끝나면 스택 메모리에서 제거
 
+### 5.3 참조변수의 ==, != 연산
+
+변수의 값이 같은지 다른지 비교
+
+기본타입 : 변수의 값이 다른지 다른지 조사 
+int v1 10;
+int v2 100;
+int v3 100;
+
+v1 == v2 false
+v1 != v3 true
+v2 == v3 true
+
+
+참조타입 : 동일한 객체를 참조하는지 다른 객체를 참조하는지 조사
+
+String v1 = "a";
+String v2 = "b";
+String v3 = v2;
+
+v1 == v2 false
+v1 != v2 true
+v2 == v3 true
+v2 != v2 false
+
+== : 참조값을 비교 !!!!
+
+null은 참조타입의 변수에만 저장 가능
+null로 초기화된 참조변수는 스택영역 생성 
+
+### 5.5 String 타입 
+String name1 = "j"; //100
+String name2 = "j"; //100
+같은값을 가진다면 같은 참조값을 가진다
+name1 == name2 true
+
+하지만 new 연산자를 이용한 String 객체생성을 하면 힙영역에 새로운 객체를 생성한다
+String name1 = new String("j"); //100
+String name2 = new String("j"); //200
+name1 == name2 false
+
+문자열이 같으냐 다르냐는 equals 를 활용한다. 
+비교연산자가 아닌 equals 메서드를 활용하여 문자열을 비교한다.
+
+name1.equals(name2) true
+
+
+### 5.7 열거타입
+
+열거타입 (enumeration Type)
+한정된 값만을 갖는 데이터 타입
+한정된 값은 열거 상수로 정릐 
+
+열거 타입 선언 
+public enum Week {
+  MONDAY, TUESDAY, WEDNESDAY
+}
+
+열거 상수는 열거 객체로 참조한다.
+열거 객체는 힙에 생성된다.
+열거 상수는 메소드 영역에서 열거 객체를 참조한다.
+
+- 열거 객체의 메소드
+열거 객체는 열거 상수의 문자열을 내부 데이터로 가지고있다
+열거 타입은 컴파일시에 java.lang.enum 클래스를 자동 상속한다. 
+
+ordinal() 열거객체의 순번을 리턴
+Week today = Week.SUNDAY;
+int ordinal = today.ordinal();
+
+### 6.1 객체 지향 프로그래밍
+
+
 
 
 
