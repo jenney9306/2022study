@@ -36,18 +36,26 @@ Java SE 구현체 종류
 
 - 종류
 정수 타입
-byte   1byte
-char   2byte
-short  2byte
-int    4byte
+byte   1byte (부호있는 정수값 저장 -128 ~ 127)
+char   2byte (음수x)
+short  2byte (음수o)
+**int    4byte**
 long   8byte
 
 
 실수 타입
 float  4byte
-double 8byte
+**double 8byte**
+(+
+둘의 차이는 메모리 크기
+정밀도를 요하는 변수를 사용하려면 double
+)
 
 논리 타입
 boolean 1byte
+
+
+
+
 
 
