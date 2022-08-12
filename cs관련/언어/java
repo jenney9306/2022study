@@ -1,1 +1,18 @@
+- java8이 나오면서 jvm 메모리 변화
+permanent generation 메모리 영역이 없어지고 metaspace 영역이 생성되었다.
 
+permanent generation
+class 혹은 method code가 저장되는 영역으로 heap 영역에 속한다. 
+default의 제한된 크기가 있다(64MB)
+
+metaspace
+java 클래스 로더가 현재까지 로드한 클래스들의 metadata가 저장되는 공간으로 heap영역이 아니라 native 영역에 위치한다.
+기본으로 제한된 크기가 없다. 
+
+그렇다면 왜 ?
+metaspace 영역은 jvm에 의해 관리되는 영역으로 heap 영역이 아니다. os레벨에서 관리되는 native 메모리를 이용함으로써 영역보의 상한을 크게 의식할 필요가 없다.
+
+- 스트림의 map과 forEach의 차이점을 알고 있는가?
+Map 은 원본데이터를 변경하지는 않지만 해당 데이터를 하나씩 빼서 변경하여 신규의 리스트를 생성하지만
+foreach는 내부 순환으로 원본을 변환하지 않지만 하나씩 뽑아서 새로운 리스트에 직접 담아주어야한다. 
+Map을 사용하는것이 병렬처리에도 좋고  성능상 더 좋다.
